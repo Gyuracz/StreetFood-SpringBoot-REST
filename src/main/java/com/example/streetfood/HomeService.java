@@ -44,6 +44,22 @@ public class HomeService {
     public void setSalatRepository(SalatRepository s){
         this.salatRepository = s;
     }
+
+    public List<Subscriber> getSubscribers(){
+        return subscriberRepository.findAll();
+    }
+
+    public List<Pizza> getPizzas(){
+        return pizzaRepository.findAll();
+    }
+
+    public List<Hamburger> getHamburgers(){
+        return hamburgerRepository.findAll();
+    }
+
+    public List<Salat> getSalats(){
+        return salatRepository.findAll();
+    }
     
     public Subscriber addSubscriber(Subscriber sub){
         return subscriberRepository.save(sub);
@@ -60,21 +76,41 @@ public class HomeService {
     public Salat addSalat(Salat salat){
         return salatRepository.save(salat);
     }
-
-    public List<Subscriber> getSubscribers(){
-        return subscriberRepository.findAll();
+    
+    public Boolean deleteSubscriber(Long id){
+        try{
+            subscriberRepository.deleteById(id);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 
-    public List<Pizza> getPizzas(){
-        return pizzaRepository.findAll();
+    public Boolean deletePizza(Long id){
+        try{
+            pizzaRepository.deleteById(id);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 
-    public List<Hamburger> getHamburgers(){
-        return hamburgerRepository.findAll();
+    public Boolean deleteHamburger(Long id){
+        try{
+            hamburgerRepository.deleteById(id);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 
-    public List<Salat> getSalats(){
-        return salatRepository.findAll();
+    public Boolean deleteSalat(Long id){
+        try{
+            salatRepository.deleteById(id);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
     
 }

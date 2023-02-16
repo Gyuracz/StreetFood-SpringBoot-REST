@@ -9,26 +9,37 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "subscribers")
 public class Subscriber {
-    
-    @GeneratedValue
-    @Id
-    private Long id;
 
-    @Column(name = "email", unique = true)
-    private String email;
+  @GeneratedValue
+  @Id
+  @Column(name = "id", unique = true)
+  private Long id;
 
-    public Subscriber(){}
+  @Column(name = "email")
+  private String email;
 
-    public Subscriber(String email){
-        this.email = email;
-    }
-	
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public Subscriber() {}
 
+  public Subscriber(Long id, String email) {
+    this.id = id;
+    this.email = email;
+  }
+
+
+  public Long getId() {
+    return this.id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
 }

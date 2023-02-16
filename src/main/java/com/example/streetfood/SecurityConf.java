@@ -38,6 +38,8 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                 //.antMatchers("/admin/**").hasRole("ADMIN")
             .and()
                 .formLogin().permitAll();
+        http.csrf().disable();
+        http.cors().disable();
     }
 
 }

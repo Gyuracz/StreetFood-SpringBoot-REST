@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -60,6 +62,26 @@ public class HomeController {
   @PostMapping("/admin/addSalat")
   public ResponseEntity<Salat> addSalat(@RequestBody Salat salat) {
     return new ResponseEntity<Salat>(homeService.addSalat(salat), HttpStatus.OK);
+  }
+
+  @DeleteMapping("/admin/deleteSubscriber")
+  public ResponseEntity<Boolean> deleteSubscriber(@RequestParam(name = "id") Long id) {
+    return new ResponseEntity<Boolean>(homeService.deleteSubscriber(id), HttpStatus.OK);
+  }
+
+  @DeleteMapping("/admin/deletePizza")
+  public ResponseEntity<Boolean> deletePizza(@RequestParam(name = "id") Long id) {
+    return new ResponseEntity<Boolean>(homeService.deletePizza(id), HttpStatus.OK);
+  }
+
+  @DeleteMapping("/admin/deleteHamburger")
+  public ResponseEntity<Boolean> deleteHamburger(@RequestParam(name = "id") Long id) {
+    return new ResponseEntity<Boolean>(homeService.deleteHamburger(id), HttpStatus.OK);
+  }
+
+  @DeleteMapping("/admin/deleteSalat")
+  public ResponseEntity<Boolean> deleteSalat(@RequestParam(name = "id") Long id) {
+    return new ResponseEntity<Boolean>(homeService.deleteSalat(id), HttpStatus.OK);
   }
 
 }

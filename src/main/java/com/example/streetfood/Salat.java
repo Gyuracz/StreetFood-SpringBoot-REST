@@ -12,19 +12,31 @@ public class Salat {
 
     @GeneratedValue
     @Id
+    @Column(name = "id", unique = true)
     private Long id;
 	
-    @Column(name = "name", unique = true)
+    @Column(name = "name")
     private String name;
 
     @Column(name ="price")
     private int price;
 
+
     public Salat(){}
 
-    public Salat(String name, int price){
+    public Salat(Long id, String name, int price){
+        this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 	
     public String getName() {
